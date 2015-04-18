@@ -1,0 +1,1 @@
+<div class="alert alert-danger"><strong><?php echo $this->msg; ?></strong></div>
