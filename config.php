@@ -1,7 +1,7 @@
 <?php
 
 // Always provide a TRAILING SLASH (/) AFTER A PATH
-define('URL', 'http://localhost/userpanelmvc/');
+define('URL', 'http://localhost/NMS-eAdministrator-INZ-userpanel/');
 define('LIBS', 'libs/');
 
 define('DB_TYPE', 'mysql');
