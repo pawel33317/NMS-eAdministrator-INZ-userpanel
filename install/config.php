@@ -1,8 +1,8 @@
 <?php 
     $config['host'] = "127.0.0.1";
     $config['user'] = "root";
-    $config['pass'] = "";
-    $config['dbname'] = "siec2";
+    $config['pass'] = "haslo01k";
+    $config['dbname'] = "siec3";
     $config['adminpass'] = md5("haslo01k");
 
 	

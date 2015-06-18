@@ -12,26 +12,30 @@ class Net extends Controller{
      */
     public function getMAC() {
         $ip = $_SERVER['REMOTE_ADDR'];
-        $mac = false;
-        $arp = `sudo arp -a -n $ip`;
-        if (!isset($arp)) {
-//           throw new Exception('Arp commend error');
-        }
-        $lines = explode("\n", $arp);
-        if (empty($lines[0])) {
-//            throw new Exception('Arp parsing error 1');
-        }
-        $tmp = explode('at ', $lines[0]);
-        if (empty($tmp[1])) {
-//            throw new Exception('Arp parsing error 2');
-        }
-        $tmp = explode(' [', @$tmp[1]);
-        if (empty($tmp[0])) {
-//            throw new Exception('Arp parsing error 3');
-        }
+        $ShowRealMac = true;
 
-//            return $tmp[0];       //return 'aa:aa:aa:aa:aa:ab';
-        return '11:22:33:44:55:64';
+	if (!$ShowRealMac){
+		return '11:22:33:44:55:64';
+	}else{
+		$arp = `sudo arp -a -n $ip`;
+		if (!isset($arp)) {
+		   throw new Exception('Arp commend error');
+		}
+		$lines = explode("\n", $arp);
+		if (empty($lines[0])) {
+		   throw new Exception('Arp parsing error 1');
+		}
+		$tmp = explode('at ', $lines[0]);
+		if (empty($tmp[1])) {
+		    throw new Exception('Arp parsing error 2');
+		}
+		$tmp = explode(' [', @$tmp[1]);
+		if (empty($tmp[0])) {
+		    throw new Exception('Arp parsing error 3');
+		}
+			//echo $tmp[0];die();
+		   return $tmp[0];       //return 'aa:aa:aa:aa:aa:ab';
+	}
     }
     /**
      * Gen free IP address
