@@ -6,8 +6,11 @@ class DeviceRegister extends Controller {
         parent::__construct();
         $this->userAuth = new User_Auth();
         $this->view->info = array();
+        
+        $NetSettings = new Net();
         try {
-            $this->mac = Net::getMAC();
+            $this->mac = $NetSettings->getMAC();
+            //$this->mac = Net::getMAC();
         } catch (Exception $e) {
             Header("Location: " . URL . "userpanel");
         }

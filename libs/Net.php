@@ -10,7 +10,7 @@ class Net extends Controller{
      * 
      * @return string host MAC address
      */
-    public static function getMAC() {
+    public function getMAC() {
         $ip = $_SERVER['REMOTE_ADDR'];
         $mac = false;
         $arp = `sudo arp -a -n $ip`;

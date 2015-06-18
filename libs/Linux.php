@@ -7,7 +7,7 @@ class Linux
     public static $shScripts = '/var/www/shscripts/';
     public static $fileToReload = '/var/www/file_to_check_to_reload/';
 
-    public static function newDevice(){
+    public function newDevice(){
         $file = Linux::$fileToReload_newUSR;
         $linuxOperation = `echo 1 > $file'newusr.s'`;
     }
