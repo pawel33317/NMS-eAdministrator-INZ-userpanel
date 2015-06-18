@@ -8,7 +8,7 @@ class Error extends Controller {
     
     function index() {
         $this->view->title = '404 Error';
-        $this->view->msg = 'This page doesnt exist';
+        $this->view->msg = 'This page does not exist';
         
         $this->view->render('error/inc/header');
         $this->view->render('error/index');

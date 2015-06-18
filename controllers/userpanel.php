@@ -11,9 +11,9 @@ class Userpanel extends Controller {
         $this->view->info = array();
 
         //Get user mac or pring error page
-        $NetSettings = new Net();
+        $this->NetSettings = new Net();
         try {
-            $this->mac = $NetSettings->getMAC();
+            $this->mac = $this->NetSettings->getMAC();
         } catch (Exception $e) {
             $this->view->render('header');
             array_push($this->view->info, array('type' => 'danger', 'text' => 'Nie można pobrać adresu MAC skontaktuj się z administratorem. '));

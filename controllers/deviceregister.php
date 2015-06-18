@@ -7,9 +7,9 @@ class DeviceRegister extends Controller {
         $this->userAuth = new User_Auth();
         $this->view->info = array();
         
-        $NetSettings = new Net();
+        $this->NetSettings = new Net();
         try {
-            $this->mac = $NetSettings->getMAC();
+            $this->mac = $this->NetSettings->getMAC();
             //$this->mac = Net::getMAC();
         } catch (Exception $e) {
             Header("Location: " . URL . "userpanel");
@@ -81,8 +81,9 @@ class DeviceRegister extends Controller {
                     throw new ArrayException(array('Pojawił się problem z bazą danych. Skontaktuj się z administratorem.'));
                 }
 
-                Linux::newDevice();
-
+                $this->NetSettings->newDevice();
+                
+                
                 Header("Location: " . URL . "userpanel/startInfo");
             } catch (ArrayException $e) {
                 $this->init();
